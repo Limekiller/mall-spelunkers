@@ -1,0 +1,17 @@
+.BlogFrame {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: calc(100vw - 2rem);
+    min-height: 100vh;
+    height: 100%;
+    border: 0.25rem dashed;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    z-index: 9;
+
+    svg {
+        width: 20rem;
+        transform: rotate(-20deg);
+    }
+}

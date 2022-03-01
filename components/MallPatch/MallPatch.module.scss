@@ -1,0 +1,42 @@
+.outerCircle {
+    width: 250px;
+    height: 250px;
+    border: 4px solid;
+    border-radius: 999rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -8rem;
+    transform: rotate(25deg);
+
+    .innerCircle {
+        width: 230px;
+        height: 230px;
+        border-radius: 999rem;
+        border: 3px dashed;
+
+        .topText {
+            fill: none;
+            stroke: none;
+
+            textPath {
+                font-family: social-gothic-rough, sans-serif;
+                font-size: 56px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .patchCenter {
+        width: 155px;
+        height: 155px;
+        position: absolute;
+        border-radius: 999rem;
+    }
+
+    @media screen and (max-width: 1300px) {
+        transform: rotate(25deg) scale(0.75);
+        right: -8rem;
+    }
+}

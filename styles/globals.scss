@@ -1,0 +1,61 @@
+@use './post.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: jaf-bernina-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  font-size: 5rem;
+  font-family: social-gothic-rough, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+h2 {
+  font-family: jaf-bernina-sans-comp, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
+h3 {
+  font-family: jaf-bernina-sans-comp, sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+p {
+  line-height: 1.75rem;
+}
+
+@media screen and (max-width: 1400px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@import url("https://use.typekit.net/bda5qia.css");
