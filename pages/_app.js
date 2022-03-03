@@ -36,8 +36,13 @@ function App({ Component, pageProps }) {
   
   const router = useRouter();
   useEffect(() => {
-    router.events.on('routeChangeComplete', setRandomColorPair())
-  }, [router.events]);  
+    router.events.on('routeChangeComplete', setRandomColorPair)
+  }, [router.events]);
+
+  useEffect(() => {
+    setRandomColorPair()
+  }, [])
+  
 
   return <>
     <Head>

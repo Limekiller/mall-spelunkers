@@ -1,0 +1,23 @@
+.RecentPosts {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 1rem;
+
+    .recentPost {
+        border-radius: 0.5rem;
+        max-width: 15rem;
+        overflow: hidden;
+
+        h3 {
+            margin-bottom: 0rem;
+        }
+
+        img {
+            //width: calc(100% + 2rem);
+            //margin: -1rem 0 0 -1rem;
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+        }
+    }
+}

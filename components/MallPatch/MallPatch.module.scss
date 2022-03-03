@@ -9,6 +9,7 @@
     position: absolute;
     bottom: -8rem;
     transform: rotate(25deg);
+    overflow: hidden;
 
     .innerCircle {
         width: 230px;
@@ -19,6 +20,7 @@
         .topText {
             fill: none;
             stroke: none;
+            animation: 'rotate' 45s linear infinite;
 
             textPath {
                 font-family: social-gothic-rough, sans-serif;

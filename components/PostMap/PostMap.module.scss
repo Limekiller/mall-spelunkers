@@ -1,0 +1,20 @@
+.PostMap {
+    .map {
+        position: relative;
+        left: calc(0px - (100vw - 800px) / 2);
+        margin-top: 5rem;
+        margin-bottom: -10rem;
+        z-index: 1;
+        transform: rotate(-5deg);
+
+        h3 {
+            margin: 0rem;
+        }
+    }
+
+    @media screen and (max-width: 820px) {
+        .map {
+            left: -2rem;
+        }
+    }
+}

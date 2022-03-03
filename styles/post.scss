@@ -23,15 +23,9 @@
         }
 
         .post-title {
-            color: white;
             position: absolute;
-            bottom: -7rem;
+            bottom: -8rem;
             left: 2rem;
-            height: 13rem;
-            display: flex;
-            align-items: center;
-            background-size: contain;
-            line-height: 5rem;
         }
 
         .mall-patch > div {
@@ -44,12 +38,13 @@
 
         .post-body {
             max-width: 45rem;
+            margin-right: 12rem;
         }
 
         .sidebar {
             position: sticky;
             top: 50px;
-            margin: 12rem 0rem 0rem 12rem;
+            margin-top: 12rem;
             color: white;
             padding: 2rem;
             border-radius: 0.5rem;
@@ -87,10 +82,69 @@
         margin-left: 0;
 
         .header-img-container {
+            width: 100vw;
+            margin-left: -3rem;
+
+            .post-title {
+                left: 3rem;
+            }
 
             .header-image {
                 width: calc(100% + 6rem);
                 margin-left: -3rem;
+            }
+
+            .mall-patch > div {
+                left: unset;
+                right: 0rem;
+            }
+        }
+
+        .post-content {
+            .post-body {
+                margin-right: 6rem
+            }
+        }
+    }
+    @media screen and (max-width: 700px) {
+        .header-img-container {
+
+            .post-title {
+                max-width: calc(100% - 6rem);
+                width: auto;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .mall-patch > div {
+                left: 50%;
+                transform: translate(-50%) rotate(25deg) scale(0.6);
+                bottom: -24rem;
+            }
+        }
+        .post-content {
+            flex-direction: column;
+
+            .post-body {
+                margin-top: 20rem;
+            }
+
+            .sidebar {
+                position: relative;
+                margin-top: 0px;
+                margin-bottom: 4rem;
+
+                .sidebar-stitching {
+                    width: 97%;
+                    height: 97%;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .post-content {
+            .post-body {
+                margin-right: 1rem
             }
         }
     }
