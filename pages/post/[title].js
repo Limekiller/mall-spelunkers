@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Head from 'next/head';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ZaggedH1 from '@/components/ZaggedH1/ZaggedH1';
@@ -7,11 +8,14 @@ import MallPatch from '@/components/MallPatch/MallPatch';
 const Post = (props) => {
 
     return <div className='post'>
+        <Head>
+            <title>{props.title} | Mall Spelunkers</title>
+        </Head>
         <div className='header-img-container'>
             {/* <div className="header-img-border"/> */}
             <Image 
                 className='header-image' 
-                src={`https:${props.imageData.Asset[0].fields.file.url}`} 
+                src={`https:${props.imageData['coverImage']}`} 
                 layout='fill' 
             />
             <div id='post-title' className='post-title'>
@@ -20,7 +24,7 @@ const Post = (props) => {
             <MallPatch 
                 title={props.title}
                 location={props.postData.fields.location}
-                patchImage={props.imageData.Asset[1].fields.file.url}
+                patchImage={props.imageData['patchCenter']}
             />
         </div>
 
@@ -47,11 +51,22 @@ export async function getStaticProps(context) {
     )
     const data = await res.json()
 
+    let imageData = {}
+    data.items.forEach(post => {
+        for (let key in post.fields) {
+            data.includes.Asset.forEach(file => {
+                if (post.fields[key].sys && file.sys.id === post.fields[key].sys.id) {
+                    imageData[key] = file.fields.file.url
+                }
+            })
+        }
+    })
+
     return {
       props: {
         title: context.params.title,
         postData: data.items[0],
-        imageData: data.includes
+        imageData: imageData
       },
       revalidate: 60,
     }

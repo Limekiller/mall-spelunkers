@@ -13,5 +13,13 @@
     svg {
         width: 20rem;
         transform: rotate(-20deg);
+
+        &:hover {
+            transform: rotate(-20deg) scale(1.1);
+        }
+    }
+
+    a {
+        pointer-events: all;
     }
 }

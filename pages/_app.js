@@ -29,6 +29,12 @@ function App({ Component, pageProps }) {
       .primary-stroke {
         stroke: ${colorPair[1]} !important;
         border-color: ${colorPair[1]} !important;
+      }
+      .primary-font {
+        color: ${colorPair[0]};
+      }
+      .secondary-font {
+        color: ${colorPair[1]};
       }`
     document.head.appendChild(style)
     setColorPair(colorPair)
