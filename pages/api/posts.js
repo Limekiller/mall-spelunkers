@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const recentPostsRes = await fetch(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?order=sys.createdAt&content_type=post`, {
+  const recentPostsRes = await fetch(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=post`, {
     headers: {
         'Authorization': `Bearer ${process.env.CONTENTFUL_API_KEY}`
     }

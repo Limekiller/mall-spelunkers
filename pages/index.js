@@ -18,6 +18,10 @@ const PostMap = dynamic(import('@/components/PostMap/PostMap'), {
 export default function Home(props) {
 
   return <div className='home'>
+    <Head>
+      <title>Mall Spelunkers</title>
+    </Head>
+
     <img className='hero-img' src={props.coverImage.fields.file.url}/>
     <div className='content-container'>
       <div className='blog-heading'>

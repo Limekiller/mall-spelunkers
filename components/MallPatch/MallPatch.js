@@ -2,7 +2,7 @@ import styles from './MallPatch.module.scss'
 
 export default function MallPatch(props) {
     const titleOffset = 250 - (props.title.length * 13)
-    const locationOffset = titleOffset * (props.title.length - props.location.length) //+ (props.location.length * 5.5)
+    const locationOffset = 250 - (props.location.length * 13) + (Math.abs(props.title.length - props.location.length) * props.location.length)
 
     let textPathTitle =
         `<textPath class="secondary-color" startOffset="${titleOffset}" alignment-baseline="top" xlink:href="#curve">
