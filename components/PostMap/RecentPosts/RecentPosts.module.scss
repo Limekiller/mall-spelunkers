@@ -5,7 +5,6 @@
 
     .recentPost {
         border-radius: 0.5rem;
-        max-width: 15rem;
         overflow: hidden;
 
         h3 {
@@ -26,5 +25,10 @@
                 border: 0.25rem dashed black;
             }
         }
+    }
+
+    @media screen and (max-width: 820px) {
+        grid-template-columns: 50% auto;
+        grid-row-gap: 3rem;
     }
 }

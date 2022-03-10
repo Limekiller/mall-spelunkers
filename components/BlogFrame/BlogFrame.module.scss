@@ -22,4 +22,10 @@
     a {
         pointer-events: all;
     }
+
+    @media screen and (max-width: 820px) {
+        svg {
+            width: 17rem;
+        }
+    }
 }

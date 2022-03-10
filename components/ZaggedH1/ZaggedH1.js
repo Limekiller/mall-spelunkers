@@ -29,5 +29,12 @@ export default function ZaggedH1(props) {
         }, 300)
     }, [colorPair]);
 
-  return <h1 ref={headingRef} className={styles.zaggedHeading}>{props.heading}</h1>
+  return <>
+    <h1 ref={headingRef} className={`${styles.zaggedHeading} zaggedHeading`}>{props.heading}</h1>
+    <style jsx>{`
+        .zaggedHeading {
+            text-shadow: 0px 2px 2px ${colorPair[1]};
+        }
+    `}</style>
+  </>
 }

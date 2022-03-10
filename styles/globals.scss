@@ -67,12 +67,15 @@ button:hover,.button:hover {
     font-size: 11px;
   }
 }
-@media screen and (max-width: 1250px) {
-  html {
-    font-size: 10px;
-  }
-}
+// @media screen and (max-width: 1250px) {
+//   html {
+//     font-size: 10px;
+//   }
+// }
 @media screen and (max-width: 820px) {
+  h1 {
+    font-size: 4.75rem;
+  }
   .content-container {
     padding: 3rem;
   }
