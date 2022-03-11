@@ -7,4 +7,7 @@
     line-height: 5rem;
     width: fit-content;
     max-width: 90vw;
+    
+    transition: opacity 0.4s ease;
+    opacity: 0;
 }

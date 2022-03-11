@@ -6,7 +6,6 @@
     padding: 0rem 5rem;
     z-index: 8;
     pointer-events: none;
-    overflow: auto;
 
     h3 {
         margin-bottom: 0.5rem;
@@ -16,11 +15,11 @@
         display: flex;
         height: 2rem;
         width: 15rem;
-        position: absolute;
+        position: relative;
         text-shadow: white;
         transform: rotate(-15deg);
         align-items: center;
-        transition: top 0.4s ease, left 0.4s ease;
+        transition: top 0.4s ease, right 0.4s ease;
 
         img {
             height: 100%;
@@ -56,8 +55,14 @@
         }
     }
 
-    svg {
-        width: 45rem;
+    .svgContainer {
+        width: 55rem;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0px;
     }
 
     .mapContainer {
@@ -73,6 +78,8 @@
         opacity: 0;
         transform: scale(0.9);
         transition: all 0.4s ease;
+        overflow: auto;
+        height: 0rem;
 
         &.active {
             pointer-events: all;
@@ -83,9 +90,10 @@
         .menuText {
             margin-top: 15rem;
             min-width: 17rem;
+            line-height: 2rem;
 
             h4 {
-                margin: 0.75rem 0rem;
+                margin-bottom: -1rem;
             }
     
             .store {
@@ -100,7 +108,7 @@
                     width: 0.75rem;
                     height: 0.75rem;
                     background: black;
-                    top: 0.25rem;
+                    top: 0.5rem;
                 }
             }
     
@@ -123,7 +131,6 @@
                 grid-template-rows: repeat(5, auto);
                 grid-auto-flow: column;
                 grid-column-gap: 2rem;
-                line-height: 0.5rem;
             }
         }
     }
@@ -136,7 +143,7 @@
         pointer-events: none;
     }
 
-    path:hover, rect:hover {
+    svg:not(.mapIcon) path:hover, rect:hover {
         filter: brightness(0.75);
         cursor: pointer;
     }
@@ -149,16 +156,28 @@
             }
 
             .menuText {
-                padding-bottom: 10rem;
+                width: 100%;
+                line-height: 1.5rem;
+
+                h4 {
+                    margin-bottom: 0rem;
+                }
+
+                .store:before {
+                    top: 0.5rem;
+                }
 
                 .recentPosts {
                     grid-template-columns: auto;
                     grid-template-rows: repeat(10, auto);
-                    line-height: 1.25rem;
+
+                    .recentIndex, .vacant {
+                        display: none;
+                    }
                 }
             }
 
-            svg {
+            .svgContainer {
                 display: none;
             }
         }

@@ -11,6 +11,11 @@
     transform: rotate(25deg);
     overflow: hidden;
 
+    svg {
+        overflow: auto !important;
+        transform-origin: unset !important;
+    }
+
     .innerCircle {
         width: 230px;
         height: 230px;
@@ -26,6 +31,11 @@
                 font-family: social-gothic-rough, sans-serif;
                 font-size: 56px;
                 text-transform: uppercase;
+            }
+
+            .locationPath {
+                transform-origin: center;
+                transform: rotate(180deg);
             }
         }
     }
