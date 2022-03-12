@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import styles from './BlogFrame.module.scss'
 
-export default function blogFrame() {
+export default function BlogFrame() {
 
   useEffect(() => {
     document.addEventListener('scroll', (e) => {
