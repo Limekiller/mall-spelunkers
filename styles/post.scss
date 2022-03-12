@@ -78,6 +78,27 @@
         }
     }
 
+    @media screen and (max-width: 1300px) {
+        .header-img-container {
+            width: 100vw;
+            margin-left: -3rem;
+
+            .post-title {
+                left: 3rem;
+            }
+
+            .header-image {
+                width: calc(100% + 6rem);
+                margin-left: -3rem;
+            }
+
+            .mall-patch > div {
+                left: unset;
+                right: 25.5rem;
+            }
+        }
+    }
+
     @media screen and (max-width: 1050px) {
         margin-left: 0;
 
@@ -106,6 +127,7 @@
             }
         }
     }
+
     @media screen and (max-width: 700px) {
         .header-img-container {
 
@@ -127,6 +149,7 @@
 
             .post-body {
                 margin-top: 20rem;
+                margin-right: 0;
             }
 
             .sidebar {
@@ -141,7 +164,12 @@
             }
         }
     }
+
     @media screen and (max-width: 500px) {
+        .zaggedHeading {
+            font-size: 12vw;
+            line-height: 12vw;
+        }
         .post-content {
             .post-body {
                 margin-right: 1rem

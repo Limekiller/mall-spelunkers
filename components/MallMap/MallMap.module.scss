@@ -149,6 +149,11 @@
     }
 
     @media screen and (max-width: 950px) {
+
+        .mapIcon {
+            left: unset;
+            right: 2rem;
+        }
         
         .mapContainer {
             .youAreHereText, .youAreHere {
