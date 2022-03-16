@@ -56,7 +56,7 @@ export default function MallMap() {
     }, [])
 
     return <div className={`${styles.MallMap}`}>
-        <div class={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
+        <div className={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
             {active ? 'Close' : 'View'} Map
             <svg
                 width="752pt"
