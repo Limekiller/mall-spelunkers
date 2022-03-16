@@ -22,7 +22,7 @@ export default function Home(props) {
       <title>Mall Spelunkers</title>
     </Head>
 
-    <img className='hero-img' src={props.coverImage.fields.file.url}/>
+    <img className='hero-img' alt='Picture of a random mall we have visited' src={props.coverImage.fields.file.url}/>
     <div className='content-container'>
       <div className='blog-heading'>
         <ZaggedH1 heading='Explore with us' />

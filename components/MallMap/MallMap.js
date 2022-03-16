@@ -19,7 +19,13 @@ export default function MallMap() {
         '1': {right: '-33rem', top: '26rem'},
         '2': {right: '-35rem', top: '30.5rem'},
         '3': {right: '-35rem', top: '34.5rem'},
-        '4': {right: '-35rem', top: '37.5rem'}
+        '4': {right: '-35rem', top: '37.5rem'},
+        '5': {right: '-37.6rem', top: '17rem'},
+        '6': {right: '-41.3rem', top: '20.5rem'},
+        '7': {right: '-43.3rem', top: '26.5rem'},
+        '8': {right: '-43.6rem', top: '30.7rem'},
+        '9': {right: '-43.6rem', top: '34.6rem'},
+        '10': {right: '-43.6rem', top: '38.6rem'}
     }
 
     const updateStar = () => {
@@ -50,21 +56,23 @@ export default function MallMap() {
     }, [])
 
     return <div className={`${styles.MallMap}`}>
-        <svg
-            className={`${styles.mapIcon} secondary-color`} 
-            onClick={() => setactive(!active)}            
-            width="752pt"
-            height="752pt"
-            version="1.1"
-            viewBox="0 0 752 752"
-            xmlns="http://www.w3.org/2000/svg">
-            <defs><style>{`.mapStroke{stroke:#ffffff;stroke-opacity:1;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill}`}</style></defs>
-            <g>
-                <path className='mapStroke' d="m283.92 244.45-102.61-26.047c-3.8711-0.78125-7.8867 0.23438-10.922 2.7656-3.0977 2.4414-4.8945 6.1797-4.8672 10.129v263.1c-0.011719 6.2539 4.3945 11.648 10.527 12.891l107.87 26.574z"/>
-                <path className='mapStroke' d="m441.78 218.14c-0.88281 0.023437-1.7617 0.10938-2.6328 0.26172h-0.13281l-128.79 25.785v289.68c0.88281-0.023437 1.7617-0.11328 2.6289-0.26562h0.13281l128.79-25.781z" id="path4"/>
-                <path className='mapStroke' d="m575.96 244.71-107.87-26.574v289.41l102.61 26.047c0.87109 0.15234 1.75 0.24219 2.6328 0.26562 7.2266-0.09375 13.062-5.9297 13.152-13.156v-263.1c0.015625-6.2539-4.3906-11.652-10.523-12.891z"/>
-            </g>
-        </svg>
+        <div class={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
+            {active ? 'Close' : 'View'} Map
+            <svg
+                width="752pt"
+                height="752pt"
+                version="1.1"
+                viewBox="0 0 752 752"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs><style>{`.mapStroke{stroke:#fff0;fill:#ffffff !important;stroke-opacity:1;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill}`}</style></defs>
+                <g>
+                    <path className='mapStroke' d="m283.92 244.45-102.61-26.047c-3.8711-0.78125-7.8867 0.23438-10.922 2.7656-3.0977 2.4414-4.8945 6.1797-4.8672 10.129v263.1c-0.011719 6.2539 4.3945 11.648 10.527 12.891l107.87 26.574z"/>
+                    <path className='mapStroke' d="m441.78 218.14c-0.88281 0.023437-1.7617 0.10938-2.6328 0.26172h-0.13281l-128.79 25.785v289.68c0.88281-0.023437 1.7617-0.11328 2.6289-0.26562h0.13281l128.79-25.781z" id="path4"/>
+                    <path className='mapStroke' d="m575.96 244.71-107.87-26.574v289.41l102.61 26.047c0.87109 0.15234 1.75 0.24219 2.6328 0.26562 7.2266-0.09375 13.062-5.9297 13.152-13.156v-263.1c0.015625-6.2539-4.3906-11.652-10.523-12.891z"/>
+                </g>
+            </svg>
+        </div>
+
 
         <div className={`${styles.mapContainer} ${active ? styles.active : ''}`}>
             <div className={styles.menuText}>

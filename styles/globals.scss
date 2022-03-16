@@ -45,7 +45,9 @@ p {
 }
 hr {
   border: none;
-  border-bottom: 5px dashed black
+  //border-bottom: 5px dashed black;
+  background-image: url("data:image/svg+xml,%3csvg width='99rem' height='99rem' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='99rem' height='99rem' fill='none' rx='0rem' ry='0rem' stroke='black' stroke-width='0.4rem' stroke-dasharray='0.5rem%2c 1.2rem' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  height: 0.4rem;
 }
 button,.button {
   color: black;

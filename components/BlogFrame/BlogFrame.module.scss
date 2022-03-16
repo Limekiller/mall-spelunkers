@@ -5,7 +5,7 @@
     width: calc(100vw - 2rem);
     min-height: 100vh;
     height: 100%;
-    border: 0.25rem dashed;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='1.5rem' stroke='black' stroke-width='0.4rem' stroke-dasharray='0.5rem%2c 1rem' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     margin: 1rem;
     border-radius: 1.5rem;
     z-index: 9;

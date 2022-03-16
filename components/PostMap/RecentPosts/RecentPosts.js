@@ -35,7 +35,12 @@ export default function RecentPosts(props) {
                         }
                     }}
                 >
-                    <img className={styles.postImage} src={props.images[post.sys.id]} style={{borderColor: colorPair[0]}} />
+                    <img 
+                        alt='Image representing the mall that this post corresponds to' 
+                        className={styles.postImage} 
+                        src={props.images[post.sys.id]} 
+                        style={{borderColor: colorPair[0]}} 
+                    />
                     <h3>{post.fields.title}</h3>
                     <span>{post.fields.location}</span>
                 </a>

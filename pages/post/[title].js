@@ -16,7 +16,8 @@ const Post = (props) => {
             <Image 
                 className='header-image' 
                 src={`https:${props.imageData['coverImage']}`} 
-                layout='fill' 
+                layout='fill'
+                alt='Header image showing a picture of this mall'
             />
             <div id='post-title' className='post-title'>
                 <ZaggedH1 heading={props.title}/>
