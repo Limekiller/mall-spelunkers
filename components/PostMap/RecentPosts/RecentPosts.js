@@ -10,7 +10,7 @@ export default function RecentPosts(props) {
 
     return <div className={styles.RecentPosts}>
         {props.posts.map((post, index) => {
-            return <Link href={`/post/${post.fields.title}`} key={index}>
+            return <Link href={`/post/${post.fields.slug}`} key={index}>
                 <a 
                     className={`
                         recentPost

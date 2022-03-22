@@ -9,7 +9,7 @@ const Post = (props) => {
 
     return <div className='post'>
         <Head>
-            <title>{props.title} | Mall Spelunkers</title>
+            <title>{props.postData.fields.title} | Mall Spelunkers</title>
         </Head>
         <div className='header-img-container'>
             {/* <div className="header-img-border"/> */}
@@ -20,10 +20,10 @@ const Post = (props) => {
                 alt='Header image showing a picture of this mall'
             />
             <div id='post-title' className='post-title'>
-                <ZaggedH1 heading={props.title}/>
+                <ZaggedH1 heading={props.postData.fields.title}/>
             </div>
             <MallPatch 
-                title={props.title}
+                title={props.postData.fields.title}
                 location={props.postData.fields.location}
                 patchImage={props.imageData['patchCenter']}
             />
@@ -44,7 +44,7 @@ const Post = (props) => {
 
 export async function getStaticProps(context) {
     const res = await fetch(
-        `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=post&fields.title=${context.params.title}`, {
+        `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=post&fields.slug=${context.params.slug}`, {
             headers: {
                 'Authorization': `Bearer ${process.env.CONTENTFUL_API_KEY}`
             }
@@ -65,7 +65,7 @@ export async function getStaticProps(context) {
 
     return {
       props: {
-        title: context.params.title,
+        slug: context.params.slug,
         postData: data.items[0],
         imageData: imageData
       },
@@ -81,7 +81,7 @@ export async function getStaticPaths() {
     })
     const posts = await res.json()
     const paths = posts.items.map((post) => ({
-        params: { title: post.fields.title },
+        params: { slug: post.fields.slug },
     }))
     return { paths, fallback: 'blocking' }
 }

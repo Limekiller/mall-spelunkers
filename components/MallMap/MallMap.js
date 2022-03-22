@@ -16,6 +16,8 @@ export default function MallMap() {
     
     const starLocations = {
         '/': {right: '-30rem', top: '12rem'},
+        '/page/about': {right: '-33.5rem', top: '42.5rem'},
+        '/page/contact': {right: '-42.5rem', top: '42.5rem'},
         '1': {right: '-33rem', top: '26rem'},
         '2': {right: '-35rem', top: '30.5rem'},
         '3': {right: '-35rem', top: '34.5rem'},
@@ -30,9 +32,9 @@ export default function MallMap() {
 
     const updateStar = () => {
         if (postsRef.current.posts) {
-            if (!['/', '/about', '/contact'].includes(window.location.pathname)) {
+            if (!['/', '/page/about', '/page/contact'].includes(window.location.pathname)) {
                 postsRef.current.posts.items.forEach((post, index) => {
-                    if (decodeURI(window.location.pathname.split('/').slice(-1)) === post.fields.title) {
+                    if (decodeURI(window.location.pathname.split('/').slice(-1)) === post.fields.slug) {
                         setstarCoords(starLocations[index + 1])
                     }
                 })
@@ -83,13 +85,13 @@ export default function MallMap() {
                     <div style={{height: 'fit-content', position: 'sticky', top: '15rem'}}>
                         <h3>Anchor Pages</h3>
                         <Link href='/'><a><h4 className={`${styles.home} ${styles.store}`} id='homeLink'>Home</h4></a></Link>
-                        <h4 className={`${styles.about} ${styles.store}`} id='aboutLink'>About</h4>
-                        <h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4>
+                        <Link href='/page/about'><a><h4 className={`${styles.about} ${styles.store}`} id='aboutLink'>About</h4></a></Link>
+                        <Link href='/page/contact'><a><h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4></a></Link>
 
                         <h3 style={{marginTop: '3rem'}}>Recent Posts</h3>
                         <div className={styles.recentPosts}>
                             {posts.posts && posts.posts.items.slice(0, 10).map((post, index) => {
-                                return <Link key={index} href={`/post/${post.fields.title}`}>
+                                return <Link key={index} href={`/post/${post.fields.slug}`}>
                                     <a>
                                         <h4 className={`${styles.store} ${styles.post}`} >
                                             <span className={styles.recentIndex}>{index + 1}. </span>{post.fields.title}
@@ -107,7 +109,7 @@ export default function MallMap() {
                     <div style={{borderLeft: '0.25rem dashed', padding: '0rem 0rem 2rem 1rem', height: 'fit-content'}}>
                         <h3>All Posts</h3>
                         {posts.posts && posts.posts.items.map((post, index) => {
-                            return <Link key={index} href={`/post/${post.fields.title}`}>
+                            return <Link key={index} href={`/post/${post.fields.slug}`}>
                                 <a id={`recentPost${index +1}`}>
                                     <h4 className={`${styles.store} ${styles.post}`} >{post.fields.title}</h4>
                                 </a>
@@ -224,6 +226,7 @@ export default function MallMap() {
                             transform="translate(-171.88 283.15) rotate(-45)"
                             id="rect16" />
                         <rect
+                            onClick={() => {document.querySelector(`#aboutLink`).click()}}
                             className="cls-5"
                             x="211.69"
                             y="764.57"
@@ -231,6 +234,7 @@ export default function MallMap() {
                             height="192.13"
                             id="rect20" />
                         <rect
+                            onClick={() => {document.querySelector(`#contactLink`).click()}}
                             className="cls-6"
                             x="524.47"
                             y="764.57"

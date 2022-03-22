@@ -17,7 +17,7 @@ export default function MallInfo(props) {
                 </div>
                 <div className={styles.linkContainer}>
                     <span className={`${styles.close} secondary-color`} tabIndex='0' onClick={() => props.setPostFromLatLong([0,0])}>×</span>
-                    <Link href={`/post/${props.mall.fields.title}`}>
+                    <Link href={`/post/${props.mall.fields.slug}`}>
                         <a 
                             className='button primary-color'
                             onMouseEnter={(e) => e.target.classList.add('primary-stroke')}

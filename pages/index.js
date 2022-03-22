@@ -41,7 +41,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=post`, {
+  const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=post&order=-sys.createdAt`, {
       headers: {
           'Authorization': `Bearer ${process.env.CONTENTFUL_API_KEY}`
       }
