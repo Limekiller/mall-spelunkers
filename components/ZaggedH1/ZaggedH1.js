@@ -1,3 +1,5 @@
+// The h1 heading with the funky zig-zag background
+
 import { useEffect, useContext, useRef } from 'react'
 
 import ColorContext from '@/components/ColorContext';
@@ -13,7 +15,7 @@ export default function ZaggedH1(props) {
         setTimeout(() => {
             // This is the zig-zag background for the post title
             // It needs to change color based on the scheme of the current page load, as well as grow to fit the size of the title
-            // One way I could think of to achieve this is to embed it as a repetable background image, as svg data. 
+            // One way I could think of to achieve this is to embed it as a repeatable background image, as svg data. 
             // This lets us define the color right in the data, and since it's a background image it automatically repeats to fill the space
             // Only downside? So much text in one file. There may be a better way?
 

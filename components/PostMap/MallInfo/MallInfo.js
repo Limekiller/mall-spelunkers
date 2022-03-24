@@ -1,3 +1,5 @@
+// The info box that pops up when you hover over a pin on the map
+
 import Link from 'next/link'
 
 import styles from './MallInfo.module.scss'

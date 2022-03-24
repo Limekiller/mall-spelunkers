@@ -1,3 +1,6 @@
+// This is the site menu/map
+// Both the button in the corner and the screen that pops up when it's active
+
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react'
@@ -14,6 +17,8 @@ export default function MallMap() {
     const postsRef = useRef({})
     postsRef.current = posts
     
+    // We have a dictionary of coordinates, mapping rooms in the mall map to pages on the site
+    // That way, the star graphic on the map matches the page we're on
     const starLocations = {
         '/': {right: '-30rem', top: '12rem'},
         '/page/about': {right: '-33.5rem', top: '42.5rem'},
@@ -30,8 +35,12 @@ export default function MallMap() {
         '10': {right: '-43.6rem', top: '38.6rem'}
     }
 
+    /**
+     * Move the star graphic to the correct place on the map
+     */
     const updateStar = () => {
         if (postsRef.current.posts) {
+            // If it's not one of the anchor pages, iterate through the posts until we find what page it is
             if (!['/', '/page/about', '/page/contact'].includes(window.location.pathname)) {
                 postsRef.current.posts.items.forEach((post, index) => {
                     if (decodeURI(window.location.pathname.split('/').slice(-1)) === post.fields.slug) {
@@ -86,11 +95,12 @@ export default function MallMap() {
                         <h3>Anchor Pages</h3>
                         <Link href='/'><a><h4 className={`${styles.home} ${styles.store}`} id='homeLink'>Home</h4></a></Link>
                         <Link href='/page/about'><a><h4 className={`${styles.about} ${styles.store}`} id='aboutLink'>About</h4></a></Link>
-                        <Link href='/page/contact'><a><h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4></a></Link>
+                        <Link href='/test'><a><h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4></a></Link>
 
                         <h3 style={{marginTop: '3rem'}}>Recent Posts</h3>
                         <div className={styles.recentPosts}>
                             {posts.posts && posts.posts.items.slice(0, 10).map((post, index) => {
+                                // The most recent 10 posts show up on the mall map
                                 return <Link key={index} href={`/post/${post.fields.slug}`}>
                                     <a>
                                         <h4 className={`${styles.store} ${styles.post}`} >
@@ -106,6 +116,7 @@ export default function MallMap() {
                             })}
                         </div>
                     </div>
+                    
                     <div style={{borderLeft: '0.25rem dashed', padding: '0rem 0rem 2rem 1rem', height: 'fit-content'}}>
                         <h3>All Posts</h3>
                         {posts.posts && posts.posts.items.map((post, index) => {

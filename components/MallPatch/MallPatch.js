@@ -1,3 +1,6 @@
+// This component renders the little "patch" that goes with every mall
+// You know, the thing with the rotating text and the image in the middle
+
 import { useContext } from 'react'
 
 import ColorContext from '@/components/ColorContext';
@@ -18,8 +21,7 @@ export default function MallPatch(props) {
             ${props.location}
         </textPath>`
   
-    return (
-    <div className='mall-patch'>
+    return <div className='mall-patch'>
         <div className={`${styles.outerCircle} primary-color primary-stroke`}>
             <div 
                 className={`${styles.innerCircle} primary-stroke`}
@@ -43,5 +45,4 @@ export default function MallPatch(props) {
             
         </div>
     </div>
-  )
 }

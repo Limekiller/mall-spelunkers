@@ -1,3 +1,6 @@
+// The "recent posts" shown above the map
+// This is a subcomponent of the map so that we can affect the post cards when hovering over matching pins
+
 import Link from 'next/link'
 import { useContext } from 'react'
 

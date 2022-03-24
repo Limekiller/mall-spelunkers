@@ -17,5 +17,6 @@ export default async function handler(req, res) {
     postImages.push(coverImage.fields.file.url)
   }))
 
+  // We return an object containing the posts object, and an array of images in which the indices match those of the posts
   res.status(200).json({ posts: recentPosts, postImages: postImages })
 }

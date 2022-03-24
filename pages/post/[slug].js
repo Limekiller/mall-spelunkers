@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import ZaggedH1 from '@/components/ZaggedH1/ZaggedH1';
 import MallPatch from '@/components/MallPatch/MallPatch';
+import NearbyMalls from '@/components/NearbyMalls/NearbyMalls';
 
 const Post = (props) => {
 
@@ -12,7 +13,6 @@ const Post = (props) => {
             <title>{props.postData.fields.title} | Mall Spelunkers</title>
         </Head>
         <div className='header-img-container'>
-            {/* <div className="header-img-border"/> */}
             <Image 
                 className='header-image' 
                 src={`https:${props.imageData['coverImage']}`} 
@@ -33,12 +33,16 @@ const Post = (props) => {
             <div className='post-body'>
                 {documentToReactComponents(props.postData.fields.body)}
             </div>
-            <div className='sidebar secondary-color'>
+            <div className='sidebar secondary-font primary-stroke'>
                 <div className='sidebar-stitching' />
                 <h2>Mall Information</h2>
                 {documentToReactComponents(props.postData.fields.information)}
             </div>
         </div>
+
+        <br /><br /><br />
+        <hr />
+        <NearbyMalls currentMall={props.postData} />
     </div>
 }
 

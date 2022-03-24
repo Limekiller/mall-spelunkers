@@ -1,5 +1,6 @@
 .post {
     margin-left: 25rem;
+    width: 81rem;
     padding: 0rem 3rem 3rem 3rem;
 
     .header-img-container {
@@ -46,11 +47,11 @@
             position: sticky;
             top: 50px;
             margin-top: 12rem;
-            color: white;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 0.5rem;
             white-space: pre-wrap;
             height: min-content;
+            border: 0.25rem solid;
 
             .sidebar-stitching {
                 width: 90%;
@@ -80,6 +81,8 @@
     }
 
     @media screen and (max-width: 1300px) {
+        width: calc(100vw - 28rem);
+
         .header-img-container {
             width: 100vw;
             margin-left: -3rem;
@@ -102,6 +105,7 @@
 
     @media screen and (max-width: 1050px) {
         margin-left: 0;
+        width: 100vw;
 
         .header-img-container {
             width: 100vw;

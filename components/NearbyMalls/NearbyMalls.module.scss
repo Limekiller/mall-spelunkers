@@ -1,0 +1,38 @@
+.NearbyMalls {
+
+    .malls {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        grid-gap: 1rem;
+
+        .mall {
+            border-radius: 0.5rem;
+            overflow: hidden;
+    
+            h3 {
+                margin-bottom: 0rem;
+            }
+    
+            img {
+                //width: calc(100% + 2rem);
+                //margin: -1rem 0 0 -1rem;
+                width: 100%;
+                height: 15rem;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+    
+            &.active, &:hover {
+                img {
+                    border: 0.25rem dashed black;
+                }
+            }
+
+            .distance {
+                display: block;
+                margin-top: 0.25rem;
+            }
+        }
+    }
+
+}

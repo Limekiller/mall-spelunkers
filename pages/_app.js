@@ -16,6 +16,9 @@ function App({ Component, pageProps }) {
     ['#ffef00', '#04d5d5']
   ]
   
+  /**
+   * Set a random color scheme on the page
+   */
   const setRandomColorPair = () => {
     // We prepend these styles directly in the document so we can change colors via CSS in a non-react way
     // We ALSO pass the colorPair val to the context provider so we can access them from React as well
@@ -40,6 +43,10 @@ function App({ Component, pageProps }) {
       .primary-stroke {
         stroke: ${colorPair[1]} !important;
         border-color: ${colorPair[1]} !important;
+      }
+      .secondary-stroke {
+        stroke: ${colorPair[0]} !important;
+        border-color: ${colorPair[0]} !important;
       }
       .primary-font {
         color: ${colorPair[0]};

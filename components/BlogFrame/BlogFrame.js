@@ -1,3 +1,6 @@
+// This site doesn't have a header, but this file would be that:
+// the surrounding dashed border and the logo link in the corner
+
 import { useEffect } from 'react'
 import Link from 'next/link'
 
@@ -6,12 +9,13 @@ import styles from './BlogFrame.module.scss'
 export default function BlogFrame() {
 
   useEffect(() => {
+    // Rotate the stitching around the logo when scrolling
     document.addEventListener('scroll', (e) => {
       document.querySelector('.stroke-dashed').style['stroke-dashoffset'] = `${window.scrollY / 8}px`
     })
   }, [])
-  
 
+  // We embed the logo as svg data and add our custom color classes so that the colors will change when the page does
   return <div className={styles.BlogFrame}>
     <Link href='/'>
       <a>

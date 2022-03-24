@@ -1,17 +1,12 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 import ZaggedH1 from "@/components/ZaggedH1/ZaggedH1"
 
 export default function Page(props) {
-  return (
-    <div className='page'>
+  return <div className='page'>
       <div className='page-content'>
         <ZaggedH1 heading={props.pageData.fields.title}/>
-        {/* {documentToReactComponents(props.pageData.fields.body)} */}
           <div dangerouslySetInnerHTML={{__html: props.pageData.fields.body}} />
       </div>
-    </div>
-  )
+  </div>
 }
 
 export async function getStaticProps(context) {

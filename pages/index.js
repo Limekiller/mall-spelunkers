@@ -1,16 +1,14 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
 
 import MallPatch from '@/components/MallPatch/MallPatch'
 import ZaggedH1 from '@/components/ZaggedH1/ZaggedH1'
-//import PostMap from '@/components/PostMap/PostMap'
 
 const PostMap = dynamic(import('@/components/PostMap/PostMap'), {
   ssr: false,
   loading: () => {
     return <div style={{textAlign: 'center', paddingTop: 20}}>
-      Chargement…
+      Loading...
     </div>
   }
 })

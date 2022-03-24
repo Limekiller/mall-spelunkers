@@ -1,3 +1,5 @@
+// The map on the front page with all the pins
+
 import { useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { divIcon } from 'leaflet'
@@ -22,6 +24,10 @@ export default function PostMap(props) {
     })
   })
 
+  /**
+   * Given an object containing a latitude and longitude, set the active post to the one matching those coordinates
+   * @param latLongArray object The object containing the latitude and longitude
+   */
   const setPostFromLatLong = (latLongArray) => {
     let foundMall = false
     props.posts.items.forEach(post => {
