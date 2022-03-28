@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react'
 
+import Search from './Search/Search';
 import styles from './MallMap.module.scss'
 
 export default function MallMap() {
@@ -12,6 +13,7 @@ export default function MallMap() {
     const [posts, setposts] = useState({})
     const [active, setactive] = useState(false)
     const [starCoords, setstarCoords] = useState({right: '0rem', top: '0rem'})
+    const [searchVal, setsearchVal] = useState('')
 
     const router = useRouter()
     const postsRef = useRef({})
@@ -67,7 +69,7 @@ export default function MallMap() {
     }, [])
 
     return <div className={`${styles.MallMap}`}>
-        <div className={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
+        <button className={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
             {active ? 'Close' : 'View'} Map
             <svg
                 width="752pt"
@@ -82,20 +84,27 @@ export default function MallMap() {
                     <path className='mapStroke' d="m575.96 244.71-107.87-26.574v289.41l102.61 26.047c0.87109 0.15234 1.75 0.24219 2.6328 0.26562 7.2266-0.09375 13.062-5.9297 13.152-13.156v-263.1c0.015625-6.2539-4.3906-11.652-10.523-12.891z"/>
                 </g>
             </svg>
-        </div>
-
+        </button>
+        <Search setMapActive={setactive} mapActive={active} setSearchVal={setsearchVal} />
 
         <div className={`${styles.mapContainer} ${active ? styles.active : ''}`}>
             <div className={styles.menuText}>
                 <h2>Mall Map</h2>
                 <span className={styles.youAreHereText}><img src='/images/star.svg' /> = You are here</span>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'auto auto', gridGap: '5rem', paddingBottom: '20rem'}}>
-                    <div style={{height: 'fit-content', position: 'sticky', top: '15rem'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'auto auto', gridGap: '2.5rem', paddingBottom: '20rem'}}>
+                    <div 
+                        style={{
+                            height: 'fit-content', 
+                            position: 'sticky', 
+                            top: '15rem',
+                            display: searchVal ? 'none' : 'block'
+                        }}
+                    >
                         <h3>Anchor Pages</h3>
                         <Link href='/'><a><h4 className={`${styles.home} ${styles.store}`} id='homeLink'>Home</h4></a></Link>
                         <Link href='/page/about'><a><h4 className={`${styles.about} ${styles.store}`} id='aboutLink'>About</h4></a></Link>
-                        <Link href='/test'><a><h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4></a></Link>
+                        <Link href='/page/contact'><a><h4 className={`${styles.contact} ${styles.store}`} id='contactLink'>Contact</h4></a></Link>
 
                         <h3 style={{marginTop: '3rem'}}>Recent Posts</h3>
                         <div className={styles.recentPosts}>
@@ -117,14 +126,23 @@ export default function MallMap() {
                         </div>
                     </div>
                     
-                    <div style={{borderLeft: '0.25rem dashed', padding: '0rem 0rem 2rem 1rem', height: 'fit-content'}}>
+                    <div 
+                        id='allPosts' 
+                        style={{
+                            padding: searchVal ? '0rem 0rem 2rem 0rem' : '0rem 0rem 2rem 2.5rem', 
+                            height: 'fit-content'
+                        }}>
                         <h3>All Posts</h3>
                         {posts.posts && posts.posts.items.map((post, index) => {
-                            return <Link key={index} href={`/post/${post.fields.slug}`}>
-                                <a id={`recentPost${index +1}`}>
-                                    <h4 className={`${styles.store} ${styles.post}`} >{post.fields.title}</h4>
-                                </a>
-                            </Link>
+                            return !searchVal || 
+                              post.fields.title.toLowerCase().includes(searchVal.toLowerCase()) || 
+                              post.fields.location.toLowerCase().includes(searchVal.toLowerCase()) ? 
+                                <Link key={index} href={`/post/${post.fields.slug}`}>
+                                    <a id={`recentPost${index +1}`} className='all-post-link'>
+                                        <h4 data-location={post.fields.location} className={`${styles.store} ${styles.post}`} >{post.fields.title}</h4>
+                                    </a>
+                                </Link>
+                            : ''
                         })}
                     </div>
                 </div>

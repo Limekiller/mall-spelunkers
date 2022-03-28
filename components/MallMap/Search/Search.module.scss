@@ -1,0 +1,56 @@
+.Search {
+
+    .mapIcon, .searchText {
+        height: min-content;
+        bottom: 2rem;
+        left: 13.5rem;
+        position: fixed;
+        pointer-events: all;
+        z-index: 8;
+        padding: 0.3rem 1rem;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 1rem;
+        border: 0.2rem dashed transparent;
+
+        svg {
+            width: 3rem;
+            height: 3rem;
+            pointer-events: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+            border: 0.2rem dashed;
+        }
+    }
+
+    .mapIcon {
+
+        &.active {
+            display: none;
+        }
+    }
+
+    .searchText {
+        left: 14rem;
+        border: 0.25rem solid;
+        color: black;
+        height: 4rem;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 950px) {
+        .searchText, .mapIcon {
+            left: unset;
+            right: 13rem;
+            max-width: calc(100vw - 15rem);
+        }
+    }
+}

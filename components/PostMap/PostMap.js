@@ -48,7 +48,7 @@ export default function PostMap(props) {
           center={[40.0066, -75.8551]} 
           zoom={9} 
           scrollWheelZoom={false} 
-          style={{height: "30rem", width: "102vw"}}
+          style={{height: "40rem", width: "102vw"}}
           whenReady={(map) => {
             map.target.on("mouseover", (e) => {
               setisHovering(false)
