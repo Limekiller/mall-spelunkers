@@ -39,30 +39,35 @@
         }
     }
 
-    .mapIcon {
-        height: min-content;
-        bottom: 2rem;
-        left: 3rem;
+    .buttonContainer {
         position: fixed;
-        pointer-events: all;
+        bottom: 3rem;
+        left: 3rem;
         z-index: 8;
-        padding: 0.3rem 1rem;
-        display: flex;
-        align-items: center;
-        color: white;
-        font-weight: bold;
-        border-radius: 1rem;
-        border: 0.2rem dashed transparent;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.75rem;
 
-        svg {
-            width: 3rem;
-            height: 3rem;
-            pointer-events: none;
-        }
-
-        &:hover {
-            cursor: pointer;
-            border: 0.2rem dashed;
+        .mapIcon {
+            pointer-events: all;
+            padding: 0.3rem 1rem;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 1rem;
+            border: 0.2rem dashed transparent;
+    
+            svg {
+                width: 3rem;
+                height: 3rem;
+                pointer-events: none;
+            }
+    
+            &:hover {
+                cursor: pointer;
+                border: 0.2rem dashed;
+            }
         }
     }
 
@@ -127,13 +132,13 @@
                 background: #04d5d5;
             }
             .about:before {
-                background: #ed0a85;
+                background: #702b87;
             }
             .contact:before {
                 background: #10b58d;
             }
             .post:before {
-                background: #f0e921;
+                background: #ed0a85;
             }
     
             .recentPosts {
@@ -142,6 +147,10 @@
                 grid-template-rows: repeat(5, auto);
                 grid-auto-flow: column;
                 grid-column-gap: 2rem;
+
+                .post:before {
+                    background: #f0e921;
+                }
             }
         }
     }
@@ -161,7 +170,7 @@
 
     @media screen and (max-width: 950px) {
 
-        .mapIcon {
+        .buttonContainer {
             left: unset;
             right: 2rem;
         }

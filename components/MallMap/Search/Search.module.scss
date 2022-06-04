@@ -1,14 +1,8 @@
 .Search {
 
     .mapIcon, .searchText {
-        height: min-content;
-        bottom: 2rem;
-        left: 13.5rem;
-        position: fixed;
         pointer-events: all;
-        z-index: 8;
         padding: 0.3rem 1rem;
-        display: flex;
         align-items: center;
         color: white;
         font-weight: bold;

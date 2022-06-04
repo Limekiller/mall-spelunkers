@@ -2,7 +2,7 @@
 
     .malls {
         display: grid;
-        grid-template-columns: repeat(4, 25%);
+        grid-template-columns: repeat(4, 24%);
         grid-gap: 1rem;
 
         .mall {
@@ -32,6 +32,14 @@
                 display: block;
                 margin-top: 0.25rem;
             }
+        }
+    }
+
+    @media screen and (max-width: 950px) {
+        .malls {
+                display: grid;
+                grid-template-columns: repeat(2, 49%);
+                grid-gap: 1rem;
         }
     }
 
