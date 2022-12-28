@@ -4,12 +4,10 @@ import styles from './Search.module.scss'
 
 export default function Search(props) {
 
-    const [active, setactive] = useState(false)
+    const [active, setactive] = useState(true)
 
     useEffect(() => {
-        if (!props.mapActive) {
-            setactive(false)
-        } else {
+        if (props.mapActive) {
             props.setSearchVal('')
         }
     }, [props.mapActive])
@@ -37,6 +35,7 @@ export default function Search(props) {
 
         <input 
             id='search'
+            placeholder='Search malls...'
             className={`
                 ${styles.searchText} 
                 ${active ? styles.active : ''}

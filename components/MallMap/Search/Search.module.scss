@@ -2,12 +2,12 @@
 
     .mapIcon, .searchText {
         pointer-events: all;
-        padding: 0.3rem 1rem;
+        padding: 0.5rem 0.5rem;
         align-items: center;
         color: white;
         font-weight: bold;
-        border-radius: 1rem;
-        border: 0.2rem dashed transparent;
+        border-radius: 0.5rem;
+        border: 0.1rem dashed transparent;
 
         svg {
             width: 3rem;
@@ -29,22 +29,12 @@
     }
 
     .searchText {
-        left: 14rem;
-        border: 0.25rem solid;
+        border: 0.2rem solid;
         color: black;
-        height: 4rem;
         display: none;
 
         &.active {
             display: block;
-        }
-    }
-
-    @media screen and (max-width: 950px) {
-        .searchText, .mapIcon {
-            left: unset;
-            right: 13rem;
-            max-width: calc(100vw - 15rem);
         }
     }
 }

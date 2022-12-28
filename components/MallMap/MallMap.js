@@ -69,10 +69,10 @@ export default function MallMap() {
     }, [])
 
     return <div className={`${styles.MallMap}`}>
-        <div className={styles.buttonContainer}>
+        {/* <div className={styles.buttonContainer}> */}
             <button className={`${styles.mapIcon} secondary-color`} onClick={() => setactive(!active)}>
                 {active ? 'Close' : 'View'} Map
-                <svg
+                {/* <svg
                     width="752pt"
                     height="752pt"
                     version="1.1"
@@ -84,10 +84,9 @@ export default function MallMap() {
                         <path className='mapStroke' d="m441.78 218.14c-0.88281 0.023437-1.7617 0.10938-2.6328 0.26172h-0.13281l-128.79 25.785v289.68c0.88281-0.023437 1.7617-0.11328 2.6289-0.26562h0.13281l128.79-25.781z" id="path4"/>
                         <path className='mapStroke' d="m575.96 244.71-107.87-26.574v289.41l102.61 26.047c0.87109 0.15234 1.75 0.24219 2.6328 0.26562 7.2266-0.09375 13.062-5.9297 13.152-13.156v-263.1c0.015625-6.2539-4.3906-11.652-10.523-12.891z"/>
                     </g>
-                </svg>
+                </svg> */}
             </button>
-            <Search setMapActive={setactive} mapActive={active} setSearchVal={setsearchVal} />
-        </div>
+        {/* </div> */}
 
 
         <div className={`${styles.mapContainer} ${active ? styles.active : ''}`}>
@@ -101,7 +100,7 @@ export default function MallMap() {
                             height: 'fit-content', 
                             position: 'sticky', 
                             top: '15rem',
-                            display: searchVal ? 'none' : 'block'
+                            //display: searchVal ? 'none' : 'block'
                         }}
                     >
                         <h3>Anchor Pages</h3>
@@ -132,10 +131,10 @@ export default function MallMap() {
                     <div 
                         id='allPosts' 
                         style={{
-                            padding: searchVal ? '0rem 0rem 2rem 0rem' : '0rem 0rem 2rem 2.5rem', 
                             height: 'fit-content'
                         }}>
                         <h3>All Posts</h3>
+                        <Search setMapActive={setactive} mapActive={active} setSearchVal={setsearchVal} />
                         {posts.posts && posts.posts.items.map((post, index) => {
                             return !searchVal || 
                               post.fields.title.toLowerCase().includes(searchVal.toLowerCase()) || 
